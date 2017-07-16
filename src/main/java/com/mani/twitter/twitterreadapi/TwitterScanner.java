@@ -15,14 +15,16 @@ import twitter4j.conf.ConfigurationBuilder;
  */
 public class TwitterScanner {
 
+    public static String keywords[] = {"India", "Modi"};
+    
     public static void main(String[] args) {
 
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true);
-        cb.setOAuthConsumerKey("KShoNCgTxYWOtDkNftYNUYScK");
-        cb.setOAuthConsumerSecret("OQqUqQFoJHnfb0bx5MKwQtrBSmF0iAQzXe1I5wJgiG83t6453o");
-        cb.setOAuthAccessToken("881909923176562689-FFZxp9XpOVGf7aui822X44mNEqp8AmW");
-        cb.setOAuthAccessTokenSecret("PFfUsXrasLdsris1z6iGo5n5Gi4d36diDKESdZmtJNgBU");
+        cb.setOAuthConsumerKey("XXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+        cb.setOAuthConsumerSecret("XXXXXXXXXXXXXXXXXXXXXXXXXX");
+        cb.setOAuthAccessToken("XXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+        cb.setOAuthAccessTokenSecret("XXXXXXXXXXXXXXXXXXXXXXX");
 
         TwitterStream twitterStream = new TwitterStreamFactory(cb.build()).getInstance();
         StatusListener listener = new StatusListener() {
@@ -58,9 +60,7 @@ public class TwitterScanner {
             }
         };
 
-        FilterQuery fq = new FilterQuery();
-        String keywords[] = {"India", "Modi"};
-
+        FilterQuery fq = new FilterQuery();       
         fq.track(keywords);
 
         twitterStream.addListener(listener);
